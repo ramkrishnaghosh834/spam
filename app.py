@@ -11,16 +11,11 @@ from nltk import PorterStemmer as Stemmer
 
 
 def process(text):
-    # lowercase it
     text = text.lower()
-    # remove punctuation
     text = ''.join([t for t in text if t not in string.punctuation])
-    # remove stopwords
     text = [t for t in text.split() if t not in stopwords.words('english')]
-    # stemming
     st = Stemmer()
     text = [st.stem(t) for t in text]
-    # return token list
     return text
 
 
